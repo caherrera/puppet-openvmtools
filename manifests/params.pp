@@ -7,6 +7,7 @@
 class openvmtools::params (
   ### START Package Configuration ###
   $package_ensure                        = present,
+  $package_name                          = 'open-vm-tools',
   $package_source                        = 'open-vm-tools',
   $package_flavor                        = undef,
   $manage_repo                           = false,

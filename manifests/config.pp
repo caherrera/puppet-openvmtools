@@ -5,4 +5,5 @@
 # @example
 #   include openvmtools::config
 class openvmtools::config {
+
 }
