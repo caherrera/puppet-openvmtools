@@ -11,7 +11,7 @@ class openvmtools::service (
   $service_name    = $openvmtools::service_name,
   $service_flags   = $openvmtools::service_flags,
   $service_manage  = $openvmtools::service_manage,
-) {
+) inherits openvmtools {
 
   assert_private()
 

@@ -22,7 +22,7 @@ class openvmtools::params (
   $service_enable                        = true,
   $service_flags                         = undef,
   $service_restart                       = undef,
-  $service_name                          = 'open-vm-tools',
+  $service_name                          = 'vmtoolsd',
   $service_manage                        = true,
   ### END Service Configuration ###
 ) {
