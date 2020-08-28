@@ -28,13 +28,13 @@ class openvmtools::params (
 ) {
 
   case $facts['os']['family'] {
-    'redhat': {
+    'Redhat': {
 
     }
-    'debian': {
+    'Debian': {
 
     }
-    'sles': {
+    'Suse': {
 
     }
     default: {
