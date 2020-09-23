@@ -6,7 +6,7 @@
 #   include openvmtools::params
 class openvmtools::params (
   ### START Package Configuration ###
-  $package_ensure                        = present,
+
   $package_name                          = 'open-vm-tools',
   $package_source                        = 'open-vm-tools',
   $package_flavor                        = undef,
@@ -26,6 +26,11 @@ class openvmtools::params (
   $service_manage                        = true,
   ### END Service Configuration ###
 ) {
+
+  case $facts['virtual'] {
+    'vmware': { $package_ensure = present }
+    default: { $package_ensure = absent }
+  }
 
   case $facts['os']['family'] {
     'Redhat': {
