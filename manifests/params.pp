@@ -18,8 +18,6 @@ class openvmtools::params (
   ### END Package Configuration ###
 
   ### START Service Configuation ###
-  $service_ensure                        = running,
-  $service_enable                        = true,
   $service_flags                         = undef,
   $service_restart                       = undef,
   $service_name                          = 'vmtoolsd',
@@ -28,8 +26,16 @@ class openvmtools::params (
 ) {
 
   case $facts['virtual'] {
-    'vmware': { $package_ensure = present }
-    default: { $package_ensure = absent }
+    'vmware': {
+      $package_ensure = present
+      $service_ensure = running
+      $service_enable = true
+    }
+    default: {
+      $package_ensure = absent
+      $service_ensure = stopped
+      $service_enable = false
+    }
   }
 
   case $facts['os']['family'] {
